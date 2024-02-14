@@ -1,6 +1,6 @@
 # Evernote for Proton
 
-Evernote colors for Proton Mail, Proton Drive, Proton Calendar.
+Evernote colors for [Proton Mail](https://github.com/ProtonMail), Proton Drive, Proton Calendar.
 
 ![ProtonMail with Everforest colors](assets/screenshot.png)
 
