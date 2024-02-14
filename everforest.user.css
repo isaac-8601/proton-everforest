@@ -1,0 +1,408 @@
+/* ==UserStyle==
+@name           Everforest- Proton.me suite (Proton Mail, Proton Drive, and Proton Calendar)
+@namespace      github.com/isaac-8601/proton-everforest
+@version        0.1.0
+@description    Everforest color scheme for Proton
+@updateURL https://github.com/isaac-8601/proton-everforest/raw/main/everforest.user.css
+@supportURL https://github.com/isaac-8601/proton-everforest/issues?q=is%3Aopen+is%3Aissue
+@author         isaac-8601
+
+
+@preprocessor   less
+@var select contrast "Contrast" ["soft:Soft", "medium:Medium*","hard:Hard"]
+@var select variant "Variant" ["dark:Dark*", "light:Light"]
+@var checkbox hidePromotionButton "Hide Upgrade Button" 0
+==/UserStyle== */
+
+@-moz-document domain("proton.me") {
+
+	:root {
+		#everforest(@variant, @contrast);
+	  }
+
+	@backgrounds: {
+		@light: {
+		  @soft: {
+			  @bg_dim: #e5dfc5;
+			  @bg0: #f3ead3;
+			  @bg1: #eae4ca;
+			  @bg2: #e5dfc5;
+			  @bg3: #ddd8be;
+			  @bg4: #d8d3ba;
+			  @bg5: #b9c0ab;
+			  @bg_red: #f4dbd0;
+			  @bg_visual: #e1e4bd;
+			  @bg_yellow: #f1e4c5;
+			  @bg_green: #e5e6c5;
+			  @bg_blue: #e1e7dd;
+		  };
+		  @medium: {
+			  @bg_dim: #efebd4;
+			  @bg0: #fdf6e3;
+			  @bg1: #f4f0d9;
+			  @bg2: #efebd4;
+			  @bg3: #e6e2cc;
+			  @bg4: #e0dcc7;
+			  @bg5: #bdc3af;
+			  @bg_red: #fbe3da;
+			  @bg_visual: #eaedc8;
+			  @bg_yellow: #faedcd;
+			  @bg_green: #f0f1d2;
+			  @bg_blue: #e9f0e9;
+		  };
+		  @hard: {
+			  @bg_dim: #F2EFDF;
+			  @bg0: #FFFBEF;
+			  @bg1: #F8F5E4;
+			  @bg2: #F2EFDF;
+			  @bg3: #EDEADA;
+			  @bg4: #E8E5D5;
+			  @bg5: #BEC5B2;
+			  @bg_red: #FFE7DE;
+			  @bg_visual: #F0F2D4;
+			  @bg_yellow: #FEF2D5;
+			  @bg_green: #F3F5D9;
+			  @bg_blue: #ECF3ED;
+			};
+	   };
+	   @dark: {
+		  @soft: {
+			  @bg_dim: #293136;
+			  @bg0: #333c43;
+			  @bg1: #3a464c;
+			  @bg2: #434f55;
+			  @bg3: #4d5960;
+			  @bg4: #555f66;
+			  @bg5: #5d6b66;
+			  @bg_red: #5c3f4f;
+			  @bg_visual: #59464c;
+			  @bg_yellow: #55544a;
+			  @bg_green: #48584e;
+			  @bg_blue: #3f5865;
+		  };
+		  @medium: {
+			  @bg_dim: #232a2e;
+			  @bg0: #2d353b;
+			  @bg1: #343f44;
+			  @bg2: #3d484d;
+			  @bg3: #475258;
+			  @bg4: #4f5258;
+			  @bg5: #56635f;
+			  @bg_red: #543a48;
+			  @bg_visual: #514045;
+			  @bg_yellow: #4d4c43;
+			  @bg_green: #425047;
+			  @bg_blue: #3a515d;
+		  };
+		  @hard: {
+			  @bg_dim: #1E2326;
+			  @bg0: #272e33;
+			  @bg1: #2E383C;
+			  @bg2: #374145;
+			  @bg3: #414B50;
+			  @bg4: #495156;
+			  @bg5: #4F5B58;
+			  @bg_red: #4C3743;
+			  @bg_visual: #493B40;
+			  @bg_yellow: #45443C;
+			  @bg_green: #3C4841;
+			  @bg_blue: #384B55;
+			};
+	   };
+  };
+
+  @foregrounds: {
+	@light: {
+	  @red: #F85552;
+	  @orange: #F57D26;
+	  @yellow: #DFA000;
+	  @green: #8DA101;
+	  @blue: #3A94C5;
+	  @aqua: #35A77C;
+	  @purple: #DF69BA;
+	  @fg: #5C6A72;
+	  @statusline1: #93B259;
+	  @statusline2: #708089;
+	  @statusline3: #E66868;
+	  @gray0: #A6B0A0;
+	  @gray1: #939F91;
+	  @gray2: #829181;
+	};
+	@dark: {
+	  @red: #E67E80;
+	  @orange: #E69875;
+	  @yellow: #DBBC7F;
+	  @green: #A7C080;
+	  @blue: #7FBBB3;
+	  @aqua: #83C092;
+	  @purple: #D699B6;
+	  @fg: #D3C6AA;
+	  @statusline1: #A7C080;
+	  @statusline2: #D3C6AA;
+	  @statusline3: #E67E80;
+	  @gray0: #7A8478;
+	  @gray1: #859289;
+	  @gray2: #9DA9A0;
+	};
+  };
+
+
+  #everforest(@variant, @contrast) {
+
+		/* set evernote variables */
+		@fg: @foregrounds[@@variant][@fg];
+		@statusline1: @foregrounds[@@variant][@statusline1];
+		@statusline2: @foregrounds[@@variant][@statusline2];
+		@statusline3: @foregrounds[@@variant][@statusline3];
+		@gray0: @foregrounds[@@variant][@gray0];
+		@gray1: @foregrounds[@@variant][@gray1];
+		@gray2: @foregrounds[@@variant][@gray2];
+
+		@red: @foregrounds[@@variant][@red];
+		@orange: @foregrounds[@@variant][@orange];
+		@yellow: @foregrounds[@@variant][@yellow];
+		@green: @foregrounds[@@variant][@green];
+		@blue: @foregrounds[@@variant][@blue];
+		@aqua: @foregrounds[@@variant][@aqua];
+		@purple: @foregrounds[@@variant][@purple];
+
+
+		@bg_dim: @backgrounds[@@variant][@@contrast][@bg_dim];
+		@bg0: @backgrounds[@@variant][@@contrast][@bg0];
+		@bg1: @backgrounds[@@variant][@@contrast][@bg1];
+		@bg2: @backgrounds[@@variant][@@contrast][@bg2];
+		@bg3: @backgrounds[@@variant][@@contrast][@bg3];
+		@bg4: @backgrounds[@@variant][@@contrast][@bg4];
+		@bg5: @backgrounds[@@variant][@@contrast][@bg5];
+
+		@bg_red: @backgrounds[@@variant][@@contrast][@bg_red];
+		@bg_visual: @backgrounds[@@variant][@@contrast][@bg_visual];
+		@bg_yellow: @backgrounds[@@variant][@@contrast][@bg_yellow];
+		@bg_green: @backgrounds[@@variant][@@contrast][@bg_green];
+		@bg_blue: @backgrounds[@@variant][@@contrast][@bg_blue];
+
+
+		
+
+
+	.color-primary {
+		color: @green;
+	}
+
+	/*  color swap proton logos */
+	svg.logo {
+		@accentH: hue(@green);
+		@protonH: hue(#6d4aff);
+
+		.replaceColor(@org, @property) {
+		&[@{property}="@{org}"] {
+			@hDiff: @protonH - hue(@org);
+			@{property}: hsl(
+			@accentH - @hDiff,
+			saturation(@org) - 50%,
+			lightness(@org) - 10%;
+			);
+		}
+		}
+
+	
+		> path {
+		.replaceColor(#B8D7FF, fill);
+		.replaceColor(#8F69FF, fill);
+		}
+
+		> defs stop {
+		.replaceColor(#E3D9FF, stop-color);
+		.replaceColor(#7341FF, stop-color);
+		.replaceColor(#6D4AFF, stop-color);
+		.replaceColor(#AA8EFF, stop-color);
+		.replaceColor(#06B8FF, stop-color);
+		.replaceColor(#BFE8FF, stop-color);
+		.replaceColor(#BFABFF, stop-color);
+		.replaceColor(#FF50C3, stop-color);
+		.replaceColor(#B487FF, stop-color);
+		.replaceColor(#FFC8FF, stop-color);
+		.replaceColor(#8EFFEE, stop-color);
+		.replaceColor(#C9C7FF, stop-color);
+		.replaceColor(#00F0C3, stop-color);
+		.replaceColor(#FFD580, stop-color);
+		.replaceColor(#F6C592, stop-color);
+		.replaceColor(#EBB6A2, stop-color);
+		.replaceColor(#DFA5AF, stop-color);
+		.replaceColor(#D397BE, stop-color);
+		.replaceColor(#C486CB, stop-color);
+		.replaceColor(#B578D9, stop-color);
+		.replaceColor(#A166E5, stop-color);
+		.replaceColor(#8B57F2, stop-color);
+		.replaceColor(#704CFF, stop-color);
+		.replaceColor(#B39FFB, stop-color);
+		.replaceColor(#FFE8DB, stop-color);
+		}
+	}
+
+
+
+	
+	&, 
+	.ui-standard,
+	.ui-prominent {
+		.lightenOrDarken(@color, @value) {
+			@result: if(
+				@variant=dark,
+				lighten(@color, @value),
+				darken(@color, @value)
+			);
+		}
+
+		.minorColor(@color, @value) {
+			@result: if(
+				@variant=dark,
+				darken(@color, @value),
+				lighten(@color, @value)
+			);
+		}
+
+		.majorColor(@color, @value) {
+			@result: if(
+				@variant=dark,
+				lighten(@color, @value),
+				darken(@color, @value)
+			);
+		}
+
+
+		--primary: @green;
+		--primary-contrast: @bg_dim;
+		--sidebar-background-color: @bg1;
+		--signal-danger-minor-2: .minorColor(@red, 10%) [ @result];
+		--signal-danger-minor-1: .minorColor(@red, 5%) [ @result];
+		--signal-danger: @red;
+		--signal-danger-major-1: .majorColor(@red,15%);
+		--signal-danger-major-2: .majorColor(@red,10%);
+		--signal-danger-major-3: .majorColor(@red,5%);
+		--signal-danger-contrast: @bg_dim;
+		--signal-warning-minor-2: .minorColor(@orange, 10%) [ @result];
+		--signal-warning-minor-1: .minorColor(@orange, 5%) [ @result];
+		--signal-warning: @orange;
+		--signal-warning-major-1:.majorColor(@orange,15%);
+		--signal-warning-major-2: .majorColor(@orange,10%);
+		--signal-warning-major-3: .majorColor(@orange,5%);
+		--signal-warning-contrast: @bg_dim;
+		--signal-success-minor-2: .minorColor(@aqua, 10%) [ @result];
+		--signal-success-minor-1:.minorColor(@aqua, 10%) [ @result];
+		--signal-success: @aqua;
+		--signal-success-major-1: .majorColor(@aqua,15%);
+		--signal-success-major-2: .majorColor(@aqua,10%);
+		--signal-success-major-3: .majorColor(@aqua,5%);
+		--signal-success-contrast: @bg_dim;
+		--signal-info-minor-2: .minorColor(@green, 10%) [ @result];
+		--signal-info-minor-1: .minorColor(@green, 5%) [ @result];
+		--signal-info: @green;
+		--signal-info-major-1: .majorColor(@green, 15%);
+		--signal-info-major-2: .majorColor(@green, 10%);
+		--signal-info-major-3: .majorColor(@green, 5%);
+		--signal-info-contrast: @bg_dim;
+		--interaction-norm-minor-2: .minorColor(@bg_green, 10%) [ @result];
+		--interaction-norm-minor-1: .minorColor(@bg_green, 5%) [ @result];
+		--interaction-norm: @green;
+		--interaction-norm-major-1: .majorColor(@green,15%) [ @result];
+		--interaction-norm-major-2: .majorColor(@green,10%) [ @result];
+		--interaction-norm-major-3: .majorColor(@green,5%) [ @result];
+		--interaction-norm-contrast: @bg_dim;
+		--interaction-weak-minor-2: .minorColor(@bg_dim, 20%) [ @result];
+		--interaction-weak-minor-1: .minorColor(@bg_dim, 10%) [ @result];
+		--interaction-weak: @bg_dim;
+		--interaction-weak-major-1: .majorColor(@bg_dim, 10%) [ @result];
+		--interaction-weak-major-2: .majorColor(@bg_dim, 20%) [ @result];
+		--interaction-weak-major-3: .majorColor(@bg_dim, 30%) [ @result];
+		--interaction-weak-contrast: @fg;
+		--text-norm: @fg;
+		--text-weak: @gray0;
+		--text-hint: @gray2;
+		--text-disabled: lighten(@gray0, 20%);
+		--text-invert: @bg_dim;
+		--field-norm: @bg3;
+		--field-hover: @bg5;
+		--field-disabled: @bg0;
+		--field-focus: @bg0;
+		--field-highlight: rgba(61, 61, 61, 0.3);
+		--border-norm: @bg2;
+		--border-weak: @bg2;
+		--background-norm: @bg0;
+		--background-weak: @bg_dim;
+		--background-strong: @bg1;
+		--background-elevated: @bg1;
+		--background-lowered: @bg_dim;
+		--interaction-default: transparent;
+		--interaction-default-hover: @bg_green;
+		--interaction-default-active: @bg_blue;
+		--shadow-norm-opacity: 0.4;
+		--shadow-lifted-opacity: 0.6;
+		--backdrop-norm: rgba(0,0,0, 0.48);
+		--optional-scrollbar-thumb-color: #44475a;
+		--optional-scrollbar-thumb-hover-color: #44475aba;
+		--optional-link-norm: var(--interaction-norm-major-1);
+		--optional-link-hover: var(--interaction-norm-major-2);
+		--optional-link-active: var(--interaction-norm-major-3);
+		--optional-email-item-unread-background-color: @bg_green;
+		--optional-email-item-unread-text-color: @green;
+		--optional-email-item-read-background-color: var(--background-norm);
+		--optional-email-item-read-text-color: var(--text-weak);
+		--optional-mini-calendar-today-color: @fg;
+		--optional-logo-icon-text-color: @green;
+		--focus-outline: @green;
+		--favorite-icon-color: @yellow;
+		--optional-navigation-item-count-background-color: @orange;
+		--focus-ring: @orange;
+		--optional-background-lowered: @bg_dim;
+		--logo-text-proton-color: @fg;
+		--logo-text-product-color: @fg;
+	}
+
+	
+
+
+	:root, .quickSettingsSection {
+		background: @bg3;
+	}
+		
+	:root, .button-promotion {
+	--upgrade-color-stop-1: @green;
+	--upgrade-color-stop-2: @aqua;
+	}
+
+	.label-proton-badge {
+		background: @purple;
+		color: @bg_dim;
+	}
+
+
+	blockquote {
+		border-left: @purple !important;
+	}
+
+	/* Scrollbars */
+	::-webkit-scrollbar {
+	width: 5px !important;
+	}
+
+	::-webkit-scrollbar:horizontal {
+		height: 5px !important;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: grey !important;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: white !important;
+	}
+
+	& when (@hidePromotionButton = 1) {
+		.button-promotion {
+		display: none;
+		}
+	}
+
+  }
+}
