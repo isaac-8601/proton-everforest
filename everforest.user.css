@@ -11,6 +11,7 @@
 @preprocessor   less
 @var select contrast "Contrast" ["soft:Soft", "medium:Medium*","hard:Hard"]
 @var select variant "Variant" ["dark:Dark*", "light:Light"]
+@var checkbox removeBorderRadius "Remove Border Radius" 0
 @var checkbox hidePromotionButton "Hide Upgrade Button" 0
 ==/UserStyle== */
 
@@ -404,5 +405,13 @@
 		}
 	}
 
+
+	& when (@removeBorderRadius = 1) {
+
+		--border-radius-sm: 0;
+		--border-radius-md: 0;
+		--border-radius-lg: 0;
+		--border-radius-xl: 0;
+	}
   }
 }
