@@ -150,7 +150,7 @@
 
   #everforest(@variant, @contrast) {
 
-		/* set evernote variables */
+		/* set everforest variables */
 		@fg: @foregrounds[@@variant][@fg];
 		@statusline1: @foregrounds[@@variant][@statusline1];
 		@statusline2: @foregrounds[@@variant][@statusline2];
@@ -407,7 +407,6 @@
 
 
 	& when (@removeBorderRadius = 1) {
-
 		--border-radius-sm: 0;
 		--border-radius-md: 0;
 		--border-radius-lg: 0;
